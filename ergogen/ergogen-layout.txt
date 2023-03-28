@@ -1,0 +1,122 @@
+units:
+  key_width: 18
+  key_height: 18
+  big_key_height: 2*key_height
+  h_spacing: key_width+1
+  v_spacing: key_height+1
+
+points:
+  key:
+    width: key_width
+    height: key_height
+    padding: h_spacing
+    spread: v_spacing
+    bind: [1, 1]
+  zones:
+    matrixzone:
+      columns:
+        col1:
+        col2:
+        col3:
+          key:
+            stagger: 5
+        col4:
+          rows:
+            row1:
+              bind: [1,2*h_spacing,1,1]
+          key:
+            stagger: 2
+        col5:
+          key:
+            stagger: -2
+          rows:
+            row1:
+              skip: true
+        col6:
+          key:
+            stagger: -2
+          rows:
+            row1:
+              skip: true
+        col7:
+          rows:
+            row1:
+              skip: true
+            row2:
+              skip: true
+            row3:
+              bind: [1,1,2*v_spacing,1]
+      rows:
+        row1:
+        row2:
+        row3:
+        row4:
+        row5:
+    thumbzone:
+      anchor:
+        shift: [5*h_spacing, 0.25*key_height]
+        rotate: -30
+      columns:
+        col1:
+          key:
+            height: key_height
+            shift: [0, -0.5*key_height]
+        col2:
+          key:
+        col3:
+      rows:
+        row1:
+          bind: [1,1,1,2*h_spacing]
+      key:
+        height: 2*key_height
+anchor:
+  ref: matrixzone_col1_row1
+  shift: [-10,-10]
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [key_width, key_height]
+  thumb_outline_1:
+    - what: rectangle
+      where: 
+        - ref: thumbzone_col1_row1
+      size: [key_width,key_height]
+      bound: true
+  thumb_outline_2:
+    - what: rectangle
+      where: 
+        - ref: thumbzone_col2_row1
+      size: [key_width,big_key_height]
+      bound: true
+  thumb_outline_3:
+    - what: rectangle
+      where: 
+        - ref: thumbzone_col3_row1
+      size: [key_width,big_key_height]
+      bound: true
+  _switch_cutouts:
+    - what: rectangle
+      where: true
+      asym: source
+      size: [key_width, key_height]
+      bound: false
+  #polygon_outline:
+  #  - what: polygon
+  #    points: 
+  #      - ref: matrixzone_col1_row1
+  #        shift: [-10,-10]
+  #      - ref: matrixzone_col1_row5
+  #        shift: [-10,38]
+  #      - ref: matrixzone_col7_row5
+  #        shift: [10,38]
+  #      - ref: matrixzone_col7_row3
+  #        shift: [10,-10]
+  switch_plate:
+    [ raw, thumb_outline_1, 
+      thumb_outline_2, thumb_outline_3,
+      -_switch_cutouts]
+  #switch_plate_polygon:
+  #  [ polygon_outline,
+  #    -_switch_cutouts]
