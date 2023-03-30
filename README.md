@@ -6,6 +6,7 @@ Some goals are:
 - make it smaller by having all switches PCB mounted
 - do not use acrylic frame and let the PCB sit directly on the desktop
 - use low profile Gateron switches
+  - I used KS27, since (a) I already have some at home and (b) I couldn't find mechanical design files for the KS33 for designing a footprint
 - add some holes at the corners of the board in order to make it tiltable/adjustable with some screw
 
 ![](images/ergodash-low.jpg)
